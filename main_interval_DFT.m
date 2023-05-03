@@ -6,6 +6,7 @@ close all; clear; clc
 load("signal_64.mat")
 figure; hold on; grid on;
 plot(t, signal)
+xlim([t(1) t(end)])
 xlabel('Time (s)')
 ylabel('Wave height (m)')
 
@@ -15,9 +16,9 @@ interval_signal = [signal-x0; signal+x0];
 
 figure; hold on; grid on;
 plot_intervalsignal(t, interval_signal)
+xlim([t(1) t(end)])
 xlabel('Time (s)')
 ylabel('Wave height (m)')
-
 
 %% PSD
 
@@ -44,6 +45,7 @@ figure; hold on;
 plot_intervalPSD(w, S_ext, 'c1d4f8');
 plot_intervalPSD(w, S_sel, 'e67e63');
 plot(w, S_target, 'LineWidth', 1, 'Color', [0 0.45 0.74])
+xlim([w(1) w(end)])
 xlabel('Frequency (rad/s)')
 ylabel('Power spectral density (m^2s)')
 legend('Interval extension', 'Selective algorithm', 'Target PSD')

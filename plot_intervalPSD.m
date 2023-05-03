@@ -18,12 +18,7 @@ function p = plot_intervalPSD(w, intervalspectrum, color)
 %
 % Date: 17/03/2022
 
-
-if size(w,1) == 1
-    x = [w fliplr(w)];
-else
-    x = [w; flipud(w)];
-end
+x = [w fliplr(w)];
 y = [intervalspectrum(1,:) fliplr(intervalspectrum(end, :))];
 
 try

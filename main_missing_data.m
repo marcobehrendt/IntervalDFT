@@ -6,6 +6,7 @@ Nt = length(signal);
 
 figure; hold on; grid on;
 plot(t, signal)
+xlim([t(1) t(end)])
 xlabel('Time (s)')
 ylabel('Wave height (m)')
 legend('Signal without missing data')
@@ -18,6 +19,7 @@ signal_md(md_pos) = NaN;
 
 figure; hold on; grid on;
 plot(t, signal_md)
+xlim([t(1) t(end)])
 xlabel('Time (s)')
 ylabel('Wave height (m)')
 legend('Signal with missing data')
@@ -29,6 +31,7 @@ reconstructed_signal(:,md_pos) = [reconstructed_signal(1,md_pos)-x0; reconstruct
 
 figure; hold on; grid on;
 plot_intervalsignal(t, reconstructed_signal)
+xlim([t(1) t(end)])
 xlabel('Time (s)')
 ylabel('Wave height (m)')
 
@@ -56,6 +59,7 @@ figure; hold on;
 plot_intervalPSD(w, S_ext, 'c1d4f8');
 plot_intervalPSD(w, S_sel, 'e67e63');
 plot(w, S_target, 'LineWidth', 1, 'Color', [0 0.45 0.74])
+xlim([w(1) w(end)])
 xlabel('Frequency (rad/s)')
 ylabel('Power spectral density (m^2s)')
 legend('Interval extension', 'Selective algorithm', 'Target PSD')
